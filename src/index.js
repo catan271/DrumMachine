@@ -28,6 +28,9 @@ var store = createStore(displayReducer);
 class Drumpad extends React.Component {
     constructor(props) {
         super(props); //index
+        this.state = {
+            re: 0
+        }
         this.handleClick = this.handleClick.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
     }
@@ -43,6 +46,7 @@ class Drumpad extends React.Component {
     componentDidMount() {
         document.addEventListener("keydown", this.handleKeyPress);
     }
+
     componentWillUnmount() {
         document.removeEventListener("keydown", this.handleKeyPress);
     }
@@ -55,7 +59,7 @@ class Drumpad extends React.Component {
 
     render() {
         return (
-            <button id={AUDIO[this.props.index][1] + '-button'} className="drum-pad" onClick={this.handleClick}>
+            <button id={AUDIO[this.props.index][1] + '-button'} className="drum-pad" onClick={this.handleClick} onFocus={this.handleClick}>
                 <audio id={AUDIO[this.props.index][1]} className="clip" src={AUDIO[this.props.index][0]}/>
                 {AUDIO[this.props.index][1]}
             </button>
@@ -142,13 +146,15 @@ class DrumMachine extends React.Component {
         this.powerOnOff = this.powerOnOff.bind(this);
     }
     powerOnOff() {
-        if (this.state.power == 'on') this.setState({power: 'off'});
+        if (this.state.power == 'on') {
+            this.setState({power: 'off'});
+        }
         else this.setState({power: 'on'});
     }
     render() {
         return (
             <div id={"machine"}>
-                <div id="bar">Catan</div>
+                <div id="bar">Catan's Drum Machine</div>
                 <div id="drum-machine">
                     {this.state.power == 'on'? <Pads/> : <DisabledPads/>}
                     <div id={"controls"}>

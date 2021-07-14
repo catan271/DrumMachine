@@ -3,6 +3,8 @@
 *{
     margin: 0;
     padding: 0;
+    border: 0;
+    outline: 0;
     box-sizing: border-box;
     font-family: 'Russo One', Arial, Helvetica;
 }
@@ -12,17 +14,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #8d8d8d;
+}
+
+#machine {
+    border: orange 4px solid;
+    background-color: #b3b3b3;
 }
 
 #drum-machine {
     height: 330px;
-    background-color: #b3b3b3;
     display: flex;
     align-items: center;
 }
 
 #bar {
     height: 24px;
+    line-height: 32px;
+    padding-left: 24px;
 }
 
 #pads {
@@ -31,11 +40,19 @@
     width: 420px;
     display: flex;
     flex-flow: wrap;
-    gap: 8px;
+    gap: 16px;
 }
 
+#pads .drum-pad:hover,
 #pads .drum-pad{
     flex: 1 0 30%;
+    background-color: grey;
+    border-radius: 4px;
+    box-shadow: 5px 5px 5px black;
+}
+
+#pads .drum-pad:active {
+    background-color: orange;
 }
 
 #controls {
@@ -54,11 +71,16 @@
     gap: 8px
 }
 
+#power button {
+    border-radius: 4px;
+}
+
 #display {
     margin-top: 48px;
-    background-color: aquamarine;
+    background-color: grey;
     width: 180px;
     height: 36px;
     line-height: 36px;
     text-align: center;
+    border: 2px solid black;
 }
