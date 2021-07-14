@@ -43,7 +43,7 @@
 
 #pads .drum-pad:hover,
 #pads .drum-pad{
-    flex: 1 0 30%;
+    flex: 1 0 26%;
     background-color: grey;
     border-radius: 4px;
     box-shadow: 5px 5px 5px black;
@@ -81,10 +81,14 @@
 }
 
 @media (max-width: 739px) {
+    #machine {
+        width: 420px;
+        max-width: 100%;
+        margin-right: 8px;
+        margin-left: 8px;
+    }
     #pads {
         width: 100%;
-        margin-left: 16px;
-        margin-right: 16px;
     }
     #drum-machine {
         flex-direction: column;
