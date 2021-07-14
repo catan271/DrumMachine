@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Russo One', Arial, Helvetica;
+}
+
+#root {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#drum-machine {
+    height: 330px;
+    background-color: #b3b3b3;
+    display: flex;
+    align-items: center;
+}
+
+#bar {
+    height: 24px;
+}
+
+#pads {
+    height: 100%;
+    padding: 24px;
+    width: 420px;
+    display: flex;
+    flex-flow: wrap;
+    gap: 8px;
+}
+
+#pads .drum-pad{
+    flex: 1 0 30%;
+}
+
+#controls {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 240px;
+    padding: 24px;
+    align-items: center;
+}
+
+#power {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+}
+
+#display {
+    margin-top: 48px;
+    background-color: aquamarine;
+    width: 180px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+}
