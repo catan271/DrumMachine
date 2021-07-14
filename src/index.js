@@ -28,15 +28,14 @@ var store = createStore(displayReducer);
 class Drumpad extends React.Component {
     constructor(props) {
         super(props); //index
-        this.state = {
-            re: 0
-        }
         this.handleClick = this.handleClick.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
     }
 
     handleClick() {
-        ReactDOM.findDOMNode(this).firstChild.play();
+        let audio = ReactDOM.findDOMNode(this).firstChild;
+        audio.currentTime = 0;
+        audio.play();
         ReactDOM.findDOMNode(this).style.backgroundColor = 'orange';
         setTimeout(() => {ReactDOM.findDOMNode(this).style.backgroundColor = 'grey';} ,100)
         store.dispatch({
@@ -61,7 +60,7 @@ class Drumpad extends React.Component {
 
     render() {
         return (
-            <button id={AUDIO[this.props.index][1] + '-button'} className="drum-pad" onClick={this.handleClick} >
+            <button id={AUDIO[this.props.index][1] + '-button'} className="drum-pad" onClick={this.handleClick}>
                 <audio id={AUDIO[this.props.index][1]} className="clip" src={AUDIO[this.props.index][0]}/>
                 {AUDIO[this.props.index][1]}
             </button>
