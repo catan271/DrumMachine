@@ -51,9 +51,6 @@
     box-shadow: 5px 5px 5px black;
 }
 
-#pads .drum-pad:active {
-    background-color: orange;
-}
 
 #controls {
     display: flex;

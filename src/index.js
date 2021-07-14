@@ -37,6 +37,8 @@ class Drumpad extends React.Component {
 
     handleClick() {
         ReactDOM.findDOMNode(this).firstChild.play();
+        ReactDOM.findDOMNode(this).style.backgroundColor = 'orange';
+        setTimeout(() => {ReactDOM.findDOMNode(this).style.backgroundColor = 'grey';} ,100)
         store.dispatch({
             type: 'change',
             display: AUDIO[this.props.index][2]
@@ -59,7 +61,7 @@ class Drumpad extends React.Component {
 
     render() {
         return (
-            <button id={AUDIO[this.props.index][1] + '-button'} className="drum-pad" onClick={this.handleClick} onFocus={this.handleClick}>
+            <button id={AUDIO[this.props.index][1] + '-button'} className="drum-pad" onClick={this.handleClick} >
                 <audio id={AUDIO[this.props.index][1]} className="clip" src={AUDIO[this.props.index][0]}/>
                 {AUDIO[this.props.index][1]}
             </button>
